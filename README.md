@@ -26,6 +26,14 @@ If you're not familiar with Rivescript check it out [here](https://github.com/ai
     You> facebook and &jh$$fRt101
     Password Bot> saved nickname facebook and password &jh$$fRt101 are you done?
     
+**Knowledge**
+
+    You> tell me about rainbow tables
+    Password Bot> Here's what I know: A rainbow table is a precomputed table for reversing 
+    cryptographic hash functions, usually for cracking password hashes. Tables are usually 
+    used in recovering a plaintext password up to a certain length consisting of a 
+    limited set of characters.
+    
 
 # Python Objects
 Rivescript supports python and javascript objects that can be executed inside the running chatbot.
