@@ -1,0 +1,106 @@
+! version = 2.0
+
+> object store_pw python
+
+	import sys
+	import base64
+	import re
+	
+	a = args
+	nn = a[0]
+	pw = a[1]
+	
+	tf = open('eg/brain/store.txt', 'r')
+	ft = tf.read()
+	tf.close()
+	
+	nn_used = "sorry that nickname has been used already"
+	saved = "saved nickname " + nn + " and password " + pw + " are you done?"
+	
+	if re.search(nn,ft):
+		return nn_used
+	else:
+		secure_pw = pw.encode('base64','strict')
+		store = nn + secure_pw
+	
+		orig_stdout = sys.stdout
+		f = file('eg/brain/store.txt', 'a')
+		sys.stdout = f
+		output = store
+		f.write(str(output)+ "\n")
+		sys.stdout = orig_stdout
+		f.close()
+		return saved
+
+< object
+
+> object get_pw python
+	
+	import re
+	import sys
+	import base64
+	
+	no_match = "sorry that nickname doesn't match any passwords I have saved"
+	
+	a = args
+	aa = a[0]
+	raw = re.compile(r"%s(.*)" % aa)
+	
+	tf = open('eg/brain/store.txt', 'r')
+	ft = tf.read()
+	tf.close()
+	
+	if re.search(raw,ft):
+		pw = re.search(raw,ft).group(1)
+		return pw.decode('base64','strict')
+	else:
+		return no_match
+        
+	
+< object
+	
+	
++ [*] (store a|save a|store this|save this|remember this|remember a) (@pass) [*]
+- sure. type 'nickname and password' just like this {topic=storage}
+
++ [*] (get|retrieve|give me|can i have my|gimme my) saved (@pass) [*]
+- what is the nickname
+- give it a nickname
+
++ *
+% what is the nickname
+- <call>get_pw <star></call>
+
++ (the nickname is|nickname is|my nickname is) *
+- <call>get_pw <star></call>
+
++ [*] nickname [*]
+- to retrieve a saved passwords simply type 'the nickname is' then the actual nickname\n
+^ you chose when you saved it. If you don't remember the nickname keep trying until you\n
+^ because there is no other way to retrieve the saved password.
+
++ [*] (@pass) * (uppercase|lowercase) [*]
+- this is an early beta feature that still has some bugs
+- one of the bugs of this early feature is that i ignore uppercase letter inputs. sorry.
+
++ [*] (wrong|changed|not right|different) [*]
+- this is an early beta feature that still has some bugs
+- one of the bugs of this early feature is that i ignore uppercase letter inputs. sorry.
+
+> topic storage
+	+ * and *
+	- <call>store_pw <star1> <star2></call>
+
+	+ no
+	- ok type a one word nickname, the word 'and' then the password you want me to save
+
+	+ (yes|yup|yeah|ok|cool|done|finished|all set)
+	- great. just type 'get saved passwords' when you need them{topic=random}
+
+	+ *
+	- i'm not sure I understand that. are you finished saving passwords? yes or no?
+	- if you're having problems saving, it should look like this 'twitter and $ythg78%goF74j&t'
+
+< topic
+
+	

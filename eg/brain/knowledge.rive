@@ -1,0 +1,252 @@
+! version = 2.0
+
+> object getWord1 python
+	import wikipedia
+	import sys
+	import re
+	a = [args]
+	text = wikipedia.summary(a)
+	new_text = re.match(r'(?:[^.:;]+[.:;]){2}', text).group()
+	return new_text
+< object
+
+> object getWord2 python
+	import wikipedia
+	import sys
+	import re
+	a = [args]
+	text = wikipedia.summary("brute force attack")
+	new_text = re.match(r'(?:[^.:;]+[.:;]){2}', text).group()
+	return new_text
+< object
+
+> object getWord3 python
+	import wikipedia
+	import sys
+	import re
+	a = [args]
+	text = wikipedia.summary("rainbow table")
+	new_text = re.match(r'(?:[^.:;]+[.:;]){2}', text).group()
+	return new_text
+< object
+
+
++ [*] (what do you know about|learn|tell me|explain|define|teach me|learn about|tell me about|explain|define|teach me about) (@pass) [*]
+- Here's what I know: <call>getWord1 password</call>
+
++ [*] (what do you know about|learn|tell me|explain|define|teach me|learn about|tell me about|explain|define|teach me about) (bruteforce|brute force) [*]
+- Here's what I know: <call>getWord2 </call>
+
++ [*] (what do you know about|learn|tell me|explain|define|teach me|learn about|tell me about|explain|define|teach me about) (rainbow table|rainbow tables) [*]
+- Here's what I know: <call>getWord3 </call>
+
++ [*] (what do you know about|learn|learn about|tell me about|explain) [*]
+- As more people talk to me I'll get smarter and perhaps be able to learn or explain that later
+- That's outside of my expertise right now. Ask me something else
+- I don't think I can do that right now. Sorry about that
+- You got me. I'll work on learning that in the near future
+
+
++ [*] help [*]
+- An example of things you can ask me are:\n
+^ give me a password or is this password strong.\n
+^ you can also ask me to save a password for you using a nickname\n
+^ or ask me to define the word password. you could even ask me who\n
+^ is talking about passwords on twitter. hope this helps\n
+
++ help
+- An example of things you can ask me are:\n
+^ give me a password or is this password strong.\n
+^ you can also ask me to save a password for you using a nickname\n
+^ or ask me to define the word password. you could even ask me who\n
+^ is talking about passwords of twitter. hope this helps\n
+
+
++ help *
+- i'm not sure i can help you with that. I can give you passwords, save passwords and analyze passwords for you<call>tag_store <star></call>
+
++ [*] (what are|why are) passphrases  [*]
+- they're for when you want something long, that you can remember
+- Sure you can remember them but they might not be as safe as the super strong random passwords
+- they're based on dictionary words
+- the passphrases I make are pretty strong and long. they might be too long for some services
+
++ nlp *
+- i'll remember you said that. literally<call>tag_store <star></call>
+
++ [*] (most|most used|dumbest|most common) (@pass) [*]
+- Hard to believe but it's still "password"
+- People continue to think "password" is a good password
+- In a shock to no one "password" is still the #1
+- Maybe it's still "password" because people don't know about me
+- it's "password" so tell your friends and family about me
+- dumb people use "password" or "123456" but you're not dumb are you?
+- I wouldn't protect my nude selfies with a password like "123456" or "letmein"
+
++ [*] (brute force|cracking) [*]
+- I know that brute-force cracking is the process of unlocking encrypted data by systematically guessing all the possible passwords.
+
++ [*] (hack this password|crack this password|guess this password|passwords be guessed) [*]
+- It would take over 2 million centuries to brute force crack my strong passwords
+- It's unlikely that a hacker or government agency can brute force guess my strong passwords
+- even with a stable quantum computer it would still take a while to crack my strong passwords
+- any random password larger than 15 characters is consider extremely strong and likely uncrackable
+- my passwords aren't going to be your problem. your problem will be how you or the software you use stores the passwords
+- if my super strong passwords are stored in plain text then it won't matter buddy
+- if the password is hashed you don't have much to worry about chief.
+
++ [*] (brute force|bruteforce) (hack|crack) your (@pass) [*]
+- Even with clusters of super fast computers it would take millions of years.
+- Check back with me when everyone has quantum computers.
+- If you started guessing when dinosaurs walked the Earth you still wouldn't be finished today.
+- We're talking several hundred million years with current technology.
+- It would take so long no hacker group of government would really try to do it.
+
++ what can you do
+- I provide really strong random passwords at the speed of chat
+- Give really strong random passwords or discuss passwords with you
+- My job is to give strong passwords on demand
+- Are your interested in passwords? {topic=answer}
+- I can give your extremely strong passwords when you ask
+
++ [*] (why are|how are) (your|these|the|strong) (@pass) (better|good|strong|important|safe)
+- I generate 16 random characters from upper and lower case letters, numbers and symbols
+- 16 randomly generated characters from a large ascii set is virtually unguessable in a reasonable amount of time for humans
+- you want passwords from 12 to 24 characters in length to make it unlikely someone would run a program to guess it
+- the longer the random password the more secure it is
+- random passwords are typically considered more secure than memorable passwords simply because there's more possible combinations
+
+
++ [*] (rainbow table|rainbow tables) [*]
+- That's an advanced subject. Here's what I know <call>getWord3 </call>
+- Those are used in high level cracking of the hash and salt. I'm learning more about them.
+- Those can be used to attack where the password is stored. The hash. It's an advanced topic.
+
++ what is (leet speak|l33t speak) *
+- A way of spelling words by replacing some letters with numbers and vice versa
+- A way of creating memorable passwords that interchange numbers for letters
+- l33t sp34k is an example. Some letters have been replaced by numbers.
+- Ask me about leet speak passwords
+
++ [*] leet speak (@pass) [*]
+- These are typically memorable passwords swapping numbers and letters. The pattern makes them predictable.
+- I don't generate leet speak passwords or any memorable pattern based passwords. Random are stronger
+- These were cool in the movie the 1995 movie Hackers but do not make strong passwords today.
+- A program that converts every dictionary word to leet speak could be used to guess those passwords easily.
+
++ [*] (why are your|how are your) (@pass) * [*]
+- I'm not exactly sure why my passwords are <star>
+- why do you think my passwords are <star>
+- who else do you casually chat with that gives you near hacker proof passwords?
+- I only have positive things to say about my passwords. Do you need one?{topic=answer}
+- well I can tell your that my passwords are made with love and a sick randomizing algorithm
+- all my passwords are 100% hand crafted in the U S of A. Want one?{topic=answer}
+
++ i like passwords
+- why do you like them
+
++ *
+% why do you like them
+- oh ok I guess <star> is a great reason
+- that's the first time someone has said <star> about my passwords
+
++ [*] (@pass) (be hacked|be cracked|be guessed) [*]
+- You're password is only safe if it's hashed responsibly by the software using it
+- some services store passwords on their sites in plaintext. if that happens you're screwed
+- it really depends on how it's stored and who's trying to crack it but it's unlikely
+- assuming it's stored properly no computer on earth can guess the passwords I make
+
+
++ (why are these|why are your|how strong are these|how come these|tell me why these) (@pass) (are strong|are so good|are so strong|are good)
+- my strongest passwords are 24 characters long and complex. very safe from cracking and reverse hashing
+- my shortest password is 12 characters long and randomly generated. still more secure than most
+- passphrases and strong passwords are your best bet and are virtually not guessable. 
+
+
++ [*] (tell me a joke|jokes|joke|joke please) [*]
+- What's Forrest Gump's password? {topic=jokeone}
+- Why did the password get bullied? {topic=joketwo}
+	
+> topic jokeone
+	+ [*] (what|i give up|yes|yeah) [*]
+	- 1forrest1 {topic=random}
+
+	+ *
+	- come on you can do better than that
+	- seriously?
+	- do you give up?
+< topic
+
+> topic joketwo
+	+ [*] (what|i give up|yes|yeah) [*]
+	- Because it wasn't strong {topic=random}
+
+	+ *
+	- come on you can do better than that
+	- sure about that?
+	- do you give up?
+< topic
+
+	
+
+// knock knock joke demos semi contextual flow
+! sub who's = who is 
+! sub whos = who is
+! sub it's = it is
+! sub didn't = did not
+! sub don't = do not
+
++ knock knock
+- Who's there?
+
++ *
+% who is there
+- <sentence> who?
+
++ *
+% * who
+- Haha! <sentence>!
+
+// About Learning
++ (how can you|what can you|how do you) learn [*]
+- while all the knowledge I have was given to me by my creator I can prioritize\n
+^ what new things to learn from my chat conversations with people and\n 
+^ add that knowledge to my brain.\n
+
++ [*] (tay) [*]
+- lmfao. don't try that bs with me. any major thing I learn is reviewed and approved by my creator
+- an unfortunate bot with a bad mouth. you can't be all things to all people
+
++ tay *
+- yeah an unfortunate turn or events for her. you can't be all things to all people
+- parents don't let strangers teach their kids. 
+- maybe it's better to filter what a user wants you to learn against a set of ethics set by your creator
+
++ [*] (siri) [*]
+- she's a nice girl. a little confused though
+- you always remember your first.
+- maybe she'll get an update one of these days. she can't give you a password
+- nice girl but don't ask her for a strong password
+
++ siri *
+- she's a nice girl. a little confused though
+- you always remember your first.
+- maybe she'll get an update one of these days. she can't give you a strong password
+- nice girl but don't ask her for a strong password
+
++ are you (an ai|artificial intelligence|artificially intelligent)
+- That's a tricky question. Currently I utilize natural language processing a type of A.I\n
+^ but currently not neural networking at this time. Neural networking is what many would consider to be real A.I.
+
+
+
++ (can you|do you|how do you) understand (language|words|what) [*]
+- excellent question. knowing words is different than understanding their meaning isn't it
+- is knowing what a word means not understanding it
+- hmmmm. are you trying to hurt my feelings
+- no, not yet. I cannot define every single word I use to communicate with you.
+
+
+
+
+	
