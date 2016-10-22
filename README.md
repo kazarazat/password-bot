@@ -1,7 +1,7 @@
 # password-bot
 A rivescript based chatbot that generates, validates and saves passwords.
-I entered this bot in the 2016 VentureBeat Botathon and it is an excellent demostration
-of using advanced python objects inside of the @AiChaos Rivescript scripting language.
+I entered this bot in the 2016 VentureBeat Botathon and it is an excellent demonstration
+of using advanced python objects inside of the [@AiChaos](https://github.com/aichaos) Rivescript scripting language.
 If you're not familiar with Rivescript check it out [here](https://github.com/aichaos/rivescript-python)
 
 # Functionality
